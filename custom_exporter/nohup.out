@@ -1,0 +1,4 @@
+flag provided but not defined: -web.listen-address:8088
+Usage of ./custom_exporter:
+  -web.listen-address string
+    	Address on which to expose metrics and web interface. (default ":8088")
