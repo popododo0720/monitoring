@@ -1,5 +1,5 @@
-ipinstancemapping.sh 
+ipinstancemapping.sh.bak 
 serverIp.json  
-serviceDiscovery.sh  
+serviceDiscovery.sh.bak  
 targets.json
 database/
