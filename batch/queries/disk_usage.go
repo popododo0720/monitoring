@@ -12,58 +12,63 @@ const (
 	diskUsedQuery = "Instance_Metrics_DISK_Used"
 )
 
-// InsertDiskUsageData inserts disk usage data into the database
-func InsertDiskUsageData(db *sql.DB, startTime, endTime time.Time) error {
-	// Fetch disk size data
+func InsertDiskUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any) {
 	sizeData, err := fetchPrometheusData(diskSizeQuery, startTime, endTime)
 	if err != nil {
-		return fmt.Errorf("error fetching disk size data from Prometheus: %w", err)
+		ch <- fmt.Sprintf("error fetching disk size data from Prometheus: %w", err)
+		return
 	}
 
-	// Fetch disk used data
 	usedData, err := fetchPrometheusData(diskUsedQuery, startTime, endTime)
 	if err != nil {
-		return fmt.Errorf("error fetching disk used data from Prometheus: %w", err)
+		ch <-fmt.Sprintf("error fetching disk used data from Prometheus: %w", err)
+		return
 	}
 
 	for _, item := range sizeData["result"].([]interface{}) {
 		metric, ok := item.(map[string]interface{})
 		if !ok {
-			return fmt.Errorf("unexpected disk size result format")
+			ch <- fmt.Errorf("unexpected disk size result format")
+			return
 		}
 
 		metricData, ok := metric["values"].([]interface{})
 		if !ok {
-			return fmt.Errorf("unexpected disk size metric data format")
+			ch <- fmt.Errorf("unexpected disk size metric data format")
+			return
 		}
 
 		for _, value := range metricData {
 			valueArray, ok := value.([]interface{})
 			if !ok || len(valueArray) < 2 {
-				return fmt.Errorf("unexpected disk size metric data format")
+				ch <- fmt.Errorf("unexpected disk size metric data format")
+				return
 			}
 
 			timestampFloat, ok := valueArray[0].(float64)
 			if !ok {
-				return fmt.Errorf("unexpected timestamp format")
+				ch <- fmt.Errorf("unexpected timestamp format")
+				return
 			}
 			timestamp := time.Unix(int64(timestampFloat), 0).UTC()
 
 			diskSizeStr, ok := valueArray[1].(string)
 			if !ok {
-				return fmt.Errorf("unexpected disk size format")
+				ch <- fmt.Errorf("unexpected disk size format")
+				return
 			}
 			diskSize, err := strconv.ParseFloat(diskSizeStr, 64)
 			if err != nil {
-				return fmt.Errorf("error parsing disk size: %w", err)
+				ch <- fmt.Errorf("error parsing disk size: %w", err)
+				return
 			}
 
 			ipAddress := metric["metric"].(map[string]interface{})["instance"].(string)
 
-			// Fetch corresponding disk used value for the same timestamp
 			diskUsed, err := getMetricValueAtTime(usedData, ipAddress, timestamp)
 			if err != nil {
-				return fmt.Errorf("error getting disk used value: %w", err)
+				ch <- fmt.Errorf("error getting disk used value: %w", err)
+				return
 			}
 
 			_, err = db.Exec(
@@ -74,15 +79,16 @@ func InsertDiskUsageData(db *sql.DB, startTime, endTime time.Time) error {
 				ipAddress,
 			)
 			if err != nil {
-				return fmt.Errorf("error inserting data into database: %w", err)
+				ch <- fmt.Errorf("error inserting data into database: %w", err)
+				return
 			}
 		}
 	}
 
-	return nil
+	ch <- "Successfully inserted DISK usage data"
+	return
 }
 
-// getMetricValueAtTime fetches the metric value for the specified IP address at a specific timestamp
 func getMetricValueAtTime(data map[string]interface{}, ipAddress string, timestamp time.Time) (float64, error) {
 	for _, item := range data["result"].([]interface{}) {
 		metric, ok := item.(map[string]interface{})

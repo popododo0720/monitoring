@@ -9,42 +9,49 @@ import (
 
 const memoryQuery = "Instance_Metrics_MEM_Usage"
 
-func InsertMemoryUsageData(db *sql.DB, startTime, endTime time.Time) error {
+func InsertMemoryUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any) {
 	data, err := fetchPrometheusData(memoryQuery, startTime, endTime)
 	if err != nil {
-		return fmt.Errorf("error fetching data from Prometheus: %w", err)
+		ch <- fmt.Errorf("error fetching data from Prometheus: %v", err)
+		return
 	}
 
 	for _, item := range data["result"].([]interface{}) {
 		metric, ok := item.(map[string]interface{})
 		if !ok {
-			return fmt.Errorf("unexpected result format")
+			ch <- fmt.Errorf("unexpected result format")
+			return
 		}
 
 		metricData, ok := metric["values"].([]interface{})
 		if !ok {
-			return fmt.Errorf("unexpected metric data format")
+			ch <- fmt.Errorf("unexpected metric data format")
+			return
 		}
 
 		for _, value := range metricData {
 			valueArray, ok := value.([]interface{})
 			if !ok || len(valueArray) < 2 {
-				return fmt.Errorf("unexpected metric data format")
+				ch <- fmt.Errorf("unexpected metric data format")
+				return
 			}
 
 			timestampFloat, ok := valueArray[0].(float64)
 			if !ok {
-				return fmt.Errorf("unexpected timestamp format")
+				ch <- fmt.Errorf("unexpected timestamp format")
+				return
 			}
 			timestamp := time.Unix(int64(timestampFloat), 0).UTC()
 
 			memUsageStr, ok := valueArray[1].(string)
 			if !ok {
-				return fmt.Errorf("unexpected memory usage format")
+				ch <-  fmt.Errorf("unexpected memory usage format")
+				return
 			}
 			memUsage, err := strconv.ParseFloat(memUsageStr, 64)
 			if err != nil {
-				return fmt.Errorf("error parsing memory usage: %w", err)
+				ch <- fmt.Errorf("error parsing memory usage: %w", err)
+				return
 			}
 
 			ipAddress := metric["metric"].(map[string]interface{})["instance"].(string)
@@ -56,10 +63,12 @@ func InsertMemoryUsageData(db *sql.DB, startTime, endTime time.Time) error {
 				ipAddress,
 			)
 			if err != nil {
-				return fmt.Errorf("error inserting data into database: %w", err)
+				ch <- fmt.Errorf("error inserting data into database: %w", err)
+				return
 			}
 		}
 	}
 
-	return nil
+	ch <- "Successfully inserted Mem usage data"
+	return
 }

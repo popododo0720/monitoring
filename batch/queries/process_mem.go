@@ -9,70 +9,83 @@ import (
 
 const processMemoryQuery = "Process_Instance_All_MEM"
 
-func InsertProcessMEMData(db *sql.DB, startTime, endTime time.Time) error {
+func InsertProcessMEMData(db *sql.DB, startTime, endTime time.Time, ch chan any) {
 	data, err := fetchPrometheusData(processMemoryQuery, startTime, endTime)
 	if err != nil {
-		return fmt.Errorf("error fetching data from Prometheus: %w", err)
+		ch <- fmt.Errorf("error fetching data from Prometheus: %w", err)
+		return
 	}
 
 	stmt, err := db.Prepare("INSERT INTO instance_process_mem(command, pid, instance_user, instance, timestamp, mem_usage) VALUES ($1, $2, $3, $4, $5, $6)")
 	if err != nil {
-		return fmt.Errorf("error preparing statement: %w", err)
+		ch <- fmt.Errorf("error preparing statement: %w", err)
+		return
 	}
 	defer stmt.Close()
 
 	for _, item := range data["result"].([]interface{}) {
 		metric, ok := item.(map[string]interface{})
 		if !ok {
-			return fmt.Errorf("unexpected result format")
+			ch <- fmt.Errorf("unexpected result format")
+			return
 		}
 
 		metricData, ok := metric["metric"].(map[string]interface{})
 		if !ok {
-			return fmt.Errorf("unexprcted metric format")
+			ch <- fmt.Errorf("unexprcted metric format")
+			return
 		}
 
 		valueData, ok := metric["values"].([]interface{})
 		if !ok {
-			return fmt.Errorf("unexpected value format")
+			ch <- fmt.Errorf("unexpected value format")
+			return
 		}
 
 		if len(metricData) < 6 {
-			return fmt.Errorf("metric array length is less than expected")
+			ch <- fmt.Errorf("metric array length is less than expected")
+			return
 		}
 
 		command, ok := metricData["COMMAND"].(string)
 		if !ok {
-			return fmt.Errorf("unexpected command format")
+			ch <- fmt.Errorf("unexpected command format")
+			return
 		}
 
 		pidStr, ok := metricData["PID"].(string)
 		if !ok {
-			return fmt.Errorf("unexpected PID format")
+			ch <- fmt.Errorf("unexpected PID format")
+			return
 		}
 		pid, err := strconv.Atoi(pidStr)
 		if err != nil {
-			return fmt.Errorf("error parsing PID: %w", err)
+			ch <- fmt.Errorf("error parsing PID: %w", err)
+			return
 		}
 
 		user, ok := metricData["User"].(string)
 		if !ok {
-			return fmt.Errorf("unexpected user format")
+			ch <- fmt.Errorf("unexpected user format")
+			return
 		}
 
 		instance, ok := metricData["instance"].(string)
 		if !ok {
-			return fmt.Errorf("unexpected instance format")
+			ch <- fmt.Errorf("unexpected instance format")
+			return
 		}
 
 		for _, v := range valueData {
 			valueArray, ok := v.([]interface{})
 			if !ok {
-				return fmt.Errorf("unexpected value array format")
+				ch <- fmt.Errorf("unexpected value array format")
+				return
 			}
 
 			if len(valueArray) < 2 {
-				return fmt.Errorf("value array length is less than expected")
+				ch <- fmt.Errorf("value array length is less than expected")
+				return
 			}
 
 			var timestamp time.Time
@@ -82,16 +95,19 @@ func InsertProcessMEMData(db *sql.DB, startTime, endTime time.Time) error {
 			case string:
 				ts, err := strconv.ParseFloat(t, 64)
 				if err != nil {
-					return fmt.Errorf("error parsing timestamp: %w", err)
+					ch <- fmt.Errorf("error parsing timestamp: %w", err)
+					return
 				}
 				timestamp = time.Unix(int64(ts), 0).UTC()
 			default:
-				return fmt.Errorf("unexpected timestamp format")
+				ch <- fmt.Errorf("unexpected timestamp format")
+				return
 			}
 
 			memUsageStr, ok := valueArray[1].(string)
 			if !ok {
-				return fmt.Errorf("unexpected CPU Usage format")
+				ch <- fmt.Errorf("unexpected CPU Usage format")
+				return
 			}
 			memUsage, _ := strconv.ParseFloat(memUsageStr, 64)
 
@@ -100,10 +116,12 @@ func InsertProcessMEMData(db *sql.DB, startTime, endTime time.Time) error {
 
 			_, err = stmt.Exec(command, pid, user, instance, timestamp, memUsage)
 			if err != nil {
-				return fmt.Errorf("error inserting data into database: %w", err)
+				ch <- fmt.Errorf("error inserting data into database: %w", err)
+				return
 			}
 		}
 	}
 
-	return nil
+	ch <- "Successfully inserted Process MEM usage data"
+	return
 }

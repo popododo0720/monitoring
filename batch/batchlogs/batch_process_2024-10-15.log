@@ -319,3 +319,53 @@
 2024/10/15 06:20:09 Successfully inserted Port usage data
 2024/10/15 06:22:30 Successfully inserted Process CPU usage data
 2024/10/15 06:22:31 Successfully inserted Process MEM usage data
+2024/10/15 06:30:01 Start Batch Process
+2024/10/15 06:30:01 Start Batch Process
+2024/10/15 06:30:01 Start Batch Process
+2024/10/15 06:30:09 Successfully inserted Port usage data
+2024/10/15 06:32:28 Successfully inserted Process CPU usage data
+2024/10/15 06:32:29 Successfully inserted Process MEM usage data
+2024/10/15 06:40:01 Start Batch Process
+2024/10/15 06:40:01 Start Batch Process
+2024/10/15 06:40:01 Start Batch Process
+2024/10/15 06:40:09 Successfully inserted Port usage data
+2024/10/15 06:42:31 Successfully inserted Process CPU usage data
+2024/10/15 06:42:31 Successfully inserted Process MEM usage data
+2024/10/15 06:50:01 Start Batch Process
+2024/10/15 06:50:01 Start Batch Process
+2024/10/15 06:50:01 Start Batch Process
+2024/10/15 06:50:10 Successfully inserted Port usage data
+2024/10/15 06:52:33 Successfully inserted Process CPU usage data
+2024/10/15 06:52:33 Successfully inserted Process MEM usage data
+2024/10/15 06:54:14 Start Batch Process
+2024/10/15 06:54:15 Successfully inserted CPU usage data
+2024/10/15 06:54:31 Start Batch Process
+2024/10/15 06:54:32 Successfully inserted CPU usage data
+2024/10/15 07:00:01 Start Batch Process
+2024/10/15 07:00:01 Start Batch Process
+2024/10/15 07:00:01 Start Batch Process
+2024/10/15 07:00:01 Start Batch Process
+2024/10/15 07:00:01 Start Batch Process
+2024/10/15 07:00:01 Start Batch Process
+2024/10/15 07:00:04 Successfully inserted MEM usage data
+2024/10/15 07:00:04 Successfully inserted CPU usage data
+2024/10/15 07:00:04 Successfully inserted Disk usage data
+2024/10/15 07:00:10 Successfully inserted Port usage data
+2024/10/15 07:01:51 Start Batch Process
+2024/10/15 07:01:53 Successfully inserted CPU usage data
+2024/10/15 07:01:53 Successfully inserted Mem usage data
+2024/10/15 07:02:35 Successfully inserted Process CPU usage data
+2024/10/15 07:02:36 Successfully inserted Process MEM usage data
+2024/10/15 07:05:22 Start Batch Process
+2024/10/15 07:05:24 Successfully inserted CPU usage data
+2024/10/15 07:05:24 Successfully inserted DISK usage data
+2024/10/15 07:05:24 Successfully inserted Mem usage data
+2024/10/15 07:06:15 Start Batch Process
+2024/10/15 07:06:15 error inserting data into database: pq: relation "cpu_usage" does not exist
+2024/10/15 07:06:15 error inserting data into database: pq: relation "disk_usage" does not exist
+2024/10/15 07:06:15 error inserting data into database: pq: relation "mem_usage" does not exist
+2024/10/15 07:09:26 Start Batch Process
+2024/10/15 07:09:28 Successfully inserted CPU usage data
+2024/10/15 07:09:28 Successfully inserted Mem usage data
+2024/10/15 07:09:28 Successfully inserted DISK usage data
+2024/10/15 07:09:32 Successfully inserted Process Port usage data

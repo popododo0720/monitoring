@@ -9,51 +9,60 @@ import (
 
 const portQuery = "Process_Instance_All_Port"
 
-func InsertPortUsageData(db *sql.DB, startTime, endTime time.Time) error {
+func InsertPortUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any) {
 	data, err := fetchPrometheusData(portQuery, startTime, endTime)
 	if err != nil {
-		return fmt.Errorf("error fetching data from Prometheus: %w", err)
+		ch <- fmt.Errorf("error fetching data from Prometheus: %w", err)
+		return
 	}
 
 	for _, item := range data["result"].([]interface{}) {
 		metric, ok := item.(map[string]interface{})
 		if !ok {
-			return fmt.Errorf("unexpected result format")
+			ch <- fmt.Errorf("unexpected result format")
+			return
 		}
 
 		metricData, ok := metric["metric"].(map[string]interface{})
 		if !ok {
-			return fmt.Errorf("unexprcted metric format")
+			ch <- fmt.Errorf("unexprcted metric format")
+			return
 		}
 
 		valueData, ok := metric["values"].([]interface{})
 		if !ok {
-			return fmt.Errorf("unexpected value format")
+			ch <- fmt.Errorf("unexpected value format")
+			return
 		}
 
 		state, ok := metricData["State"].(string)
 		if !ok {
-			return fmt.Errorf("unexpected State format")
+			ch <- fmt.Errorf("unexpected State format")
+			return
 		}
 
 		recvQ, ok := metricData["RecvQ"].(string)
 		if !ok {
-			return fmt.Errorf("unexpected RecvQ format")
+			ch <- fmt.Errorf("unexpected RecvQ format")
+			return
 		}
 
 		sendQ, ok := metricData["SendQ"].(string)
 		if !ok {
-			return fmt.Errorf("unexpected SendQ format")
+			ch <- fmt.Errorf("unexpected SendQ format")
+			return
 		}
 
 		local, ok := metricData["Local"].(string)
 		if !ok {
-			return fmt.Errorf("unexpected Local format")
+			ch <- fmt.Errorf("unexpected Local format")
+			return
 		}
 
 		peer, ok := metricData["Peer"].(string)
 		if !ok {
-			return fmt.Errorf("unexpected Peer format")
+			ch <- fmt.Errorf("unexpected Peer format")
+			return
 		}
 
 		process, ok := metricData["Process"].(string)
@@ -69,7 +78,8 @@ func InsertPortUsageData(db *sql.DB, startTime, endTime time.Time) error {
 		for _, v := range valueData {
 			valueArray, ok := v.([]interface{})
 			if !ok {
-				return fmt.Errorf("unexpected value array format")
+				ch <- fmt.Errorf("unexpected value array format")
+				return
 			}
 
 			var timestamp time.Time
@@ -79,11 +89,13 @@ func InsertPortUsageData(db *sql.DB, startTime, endTime time.Time) error {
 			case string:
 				ts, err := strconv.ParseFloat(t, 64)
 				if err != nil {
-					return fmt.Errorf("error parsing timestamp: %w", err)
+					ch <- fmt.Errorf("error parsing timestamp: %w", err)
+					return
 				}
 				timestamp = time.Unix(int64(ts), 0).UTC()
 			default:
-				return fmt.Errorf("unexpected timestamp format")
+				ch <- fmt.Errorf("unexpected timestamp format")
+				return
 			}
 
 			_, err = db.Exec(
@@ -98,11 +110,13 @@ func InsertPortUsageData(db *sql.DB, startTime, endTime time.Time) error {
 				instance,
 			)
 			if err != nil {
-				return fmt.Errorf("error inserting data into database: %w", err)
+				ch <- fmt.Errorf("error inserting data into database: %w", err)
+				return
 			}
 		}
 
 	}
 
-	return nil
+	ch <- "Successfully inserted Process Port usage data"
+	return
 }
