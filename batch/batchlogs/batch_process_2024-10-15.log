@@ -1,0 +1,321 @@
+2024/10/15 04:30:02 Start Batch Process
+2024/10/15 04:30:02 Start Batch Process
+2024/10/15 04:30:02 Start Batch Process
+2024/10/15 04:30:33 Successfully inserted Port usage data
+2024/10/15 04:39:22 Successfully inserted Process MEM usage data
+2024/10/15 04:39:22 Successfully inserted Process CPU usage data
+2024/10/15 04:40:01 Start Batch Process
+2024/10/15 04:40:01 Start Batch Process
+2024/10/15 04:40:01 Start Batch Process
+2024/10/15 04:40:33 Successfully inserted Port usage data
+2024/10/15 04:49:36 Successfully inserted Process MEM usage data
+2024/10/15 04:49:36 Successfully inserted Process CPU usage data
+2024/10/15 04:50:01 Start Batch Process
+2024/10/15 04:50:01 Start Batch Process
+2024/10/15 04:50:01 Start Batch Process
+2024/10/15 04:50:33 Successfully inserted Port usage data
+2024/10/15 04:51:12 Error inserting Process MEM usage data: error inserting data into database: pq: relation "instance_process_mem" does not exist
+2024/10/15 04:51:24 Error inserting Process CPU usage data: error inserting data into database: pq: relation "instance_process_cpu" does not exist
+2024/10/15 04:52:59 Start Batch Process
+2024/10/15 04:52:59 Unknown action: process-port
+2024/10/15 04:53:29 Start Batch Process
+2024/10/15 04:53:47 Successfully inserted Port usage data
+2024/10/15 04:53:59 Start Batch Process
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Error inserting remaining data: error executing batch insert: sql: expected 6 arguments, got 5496
+2024/10/15 04:53:59 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:53:59 Successfully inserted Process MEM usage data
+2024/10/15 04:56:07 Start Batch Process
+2024/10/15 04:56:07 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:07 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:08 Error inserting remaining data: error executing batch insert: sql: expected 6 arguments, got 5418
+2024/10/15 04:56:08 Successfully inserted Process MEM usage data
+2024/10/15 04:56:18 Start Batch Process
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Error inserting remaining data: error executing batch insert: sql: expected 6 arguments, got 5412
+2024/10/15 04:56:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 30000
+2024/10/15 04:56:19 Successfully inserted Process MEM usage data
+2024/10/15 05:00:18 Start Batch Process
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:00:19 Error inserting remaining data: error executing batch insert: sql: expected 6 arguments, got 5598
+2024/10/15 05:00:19 Successfully inserted Process MEM usage data
+2024/10/15 05:03:16 Start Batch Process
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Error inserting remaining data: error executing batch insert: sql: expected 6 arguments, got 588
+2024/10/15 05:03:16 Error inserting batch data: error executing batch insert: sql: expected 6 arguments, got 6000
+2024/10/15 05:03:16 Successfully inserted Process MEM usage data
+2024/10/15 05:08:35 Start Batch Process
+2024/10/15 05:08:52 Successfully inserted Port usage data
+2024/10/15 05:10:01 Start Batch Process
+2024/10/15 05:10:01 Start Batch Process
+2024/10/15 05:10:01 Start Batch Process
+2024/10/15 05:10:32 Successfully inserted Port usage data
+2024/10/15 05:19:30 Successfully inserted Process MEM usage data
+2024/10/15 05:19:30 Successfully inserted Process CPU usage data
+2024/10/15 05:20:01 Start Batch Process
+2024/10/15 05:20:01 Start Batch Process
+2024/10/15 05:20:01 Start Batch Process
+2024/10/15 05:20:34 Successfully inserted Port usage data
+2024/10/15 05:29:35 Successfully inserted Process MEM usage data
+2024/10/15 05:29:35 Successfully inserted Process CPU usage data
+2024/10/15 05:30:01 Start Batch Process
+2024/10/15 05:30:01 Start Batch Process
+2024/10/15 05:30:01 Start Batch Process
+2024/10/15 05:30:33 Successfully inserted Port usage data
+2024/10/15 05:36:17 Start Batch Process
+2024/10/15 05:39:42 Successfully inserted Process CPU usage data
+2024/10/15 05:39:42 Successfully inserted Process MEM usage data
+2024/10/15 05:40:01 Start Batch Process
+2024/10/15 05:40:01 Start Batch Process
+2024/10/15 05:40:01 Start Batch Process
+2024/10/15 05:40:34 Successfully inserted Port usage data
+2024/10/15 05:45:52 Successfully inserted Process MEM usage data
+2024/10/15 05:49:57 Successfully inserted Process CPU usage data
+2024/10/15 05:49:58 Successfully inserted Process MEM usage data
+2024/10/15 05:50:01 Start Batch Process
+2024/10/15 05:50:01 Start Batch Process
+2024/10/15 05:50:01 Start Batch Process
+2024/10/15 05:50:34 Successfully inserted Port usage data
+2024/10/15 05:51:03 Error inserting Process MEM usage data: error inserting data into database: pq: relation "instance_process_mem" does not exist
+2024/10/15 05:55:56 Successfully inserted Process CPU usage data
+2024/10/15 05:57:27 Start Batch Process
+2024/10/15 05:57:32 Successfully inserted Port usage data
+2024/10/15 05:57:43 Start Batch Process
+2024/10/15 05:59:12 Successfully inserted Process MEM usage data
+2024/10/15 06:00:01 Start Batch Process
+2024/10/15 06:00:01 Start Batch Process
+2024/10/15 06:00:01 Start Batch Process
+2024/10/15 06:00:01 Start Batch Process
+2024/10/15 06:00:01 Start Batch Process
+2024/10/15 06:00:01 Start Batch Process
+2024/10/15 06:00:04 Error inserting Process All Port data: error inserting data into database: pq: relation "instance_ports" does not exist
+2024/10/15 06:00:04 Successfully inserted CPU usage data
+2024/10/15 06:00:04 Successfully inserted MEM usage data
+2024/10/15 06:00:04 Successfully inserted Disk usage data
+2024/10/15 06:02:34 Successfully inserted Process CPU usage data
+2024/10/15 06:02:34 Successfully inserted Process MEM usage data
+2024/10/15 06:10:01 Start Batch Process
+2024/10/15 06:10:01 Start Batch Process
+2024/10/15 06:10:01 Start Batch Process
+2024/10/15 06:10:09 Successfully inserted Port usage data
+2024/10/15 06:12:30 Successfully inserted Process CPU usage data
+2024/10/15 06:12:30 Successfully inserted Process MEM usage data
+2024/10/15 06:20:01 Start Batch Process
+2024/10/15 06:20:01 Start Batch Process
+2024/10/15 06:20:01 Start Batch Process
+2024/10/15 06:20:09 Successfully inserted Port usage data
+2024/10/15 06:22:30 Successfully inserted Process CPU usage data
+2024/10/15 06:22:31 Successfully inserted Process MEM usage data

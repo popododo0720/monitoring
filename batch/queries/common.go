@@ -25,7 +25,7 @@ func fetchPrometheusData(query string, startTime, endTime time.Time) (map[string
 	q.Add("query", query)
 	q.Add("start", startTime.Format(time.RFC3339))
 	q.Add("end", endTime.Format(time.RFC3339))
-	q.Add("step", "15")
+	q.Add("step", "60")
 	req.URL.RawQuery = q.Encode()
 
 	auth := fmt.Sprintf("%s:%s", username, password)
