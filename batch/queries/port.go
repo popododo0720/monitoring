@@ -7,6 +7,17 @@ import (
 	"time"
 )
 
+type ProcessPortData struct {
+	State      string
+	RecvQ          string
+	SendQ         string
+	Local     string
+	Peer	string
+	Process	string
+	Timestamp    time.Time
+	Instance	string
+}
+
 const portQuery = "Process_Instance_All_Port"
 
 func InsertPortUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any) {
@@ -15,6 +26,8 @@ func InsertPortUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any) 
 		ch <- fmt.Errorf("error fetching data from Prometheus: %w", err)
 		return
 	}
+
+	var processDataList []ProcessPortData
 
 	for _, item := range data["result"].([]interface{}) {
 		metric, ok := item.(map[string]interface{})
@@ -98,25 +111,64 @@ func InsertPortUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any) 
 				return
 			}
 
-			_, err = db.Exec(
-				"INSERT INTO instance_ports(state, recvq, sendq, local, peer, process, timestamp, instance) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
-				state,
-				recvQ,
-				sendQ,
-				local,
-				peer,
-				process,
-				timestamp,
-				instance,
-			)
-			if err != nil {
-				ch <- fmt.Errorf("error inserting data into database: %w", err)
-				return
-			}
+			processDataList = append(processDataList, ProcessPortData{
+				State:      state,
+				RecvQ:          recvQ,
+				SendQ:         sendQ,
+				Local:     local,
+				Peer:	peer,
+				Process:	process,
+				Timestamp:    timestamp,
+				Instance:	instance,
+			})
+			
 		}
 
 	}
 
+	err = insertPortUsageDataDB(db, processDataList, ch)
+	if err != nil {
+		ch <- fmt.Errorf("error inserting data into database: %w", err)
+		return
+	}
+
 	ch <- "Successfully inserted Process Port usage data"
 	return
+}
+
+func insertPortUsageDataDB(db *sql.DB, processDataList []ProcessPortData, ch chan any) error{
+	tx, err := db.Begin()
+	if err != nil{
+		return fmt.Errorf("error starting transaction: %w", err)
+	}
+
+	stmt, err := tx.Prepare("INSERT INTO instance_ports(state, recvq, sendq, local, peer, process, timestamp, instance) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)")
+	if err != nil{
+		tx.Rollback()
+		return fmt.Errorf("error preparing statement: %w", err)
+	}
+	defer stmt.Close()
+
+	batchSize := 10000
+	for i:= 0; i < len(processDataList); i += batchSize{
+		end := i + batchSize
+		if end > len(processDataList) {
+			end = len(processDataList)
+		}
+
+		for _, data := range processDataList {
+			_, err = stmt.Exec(data.State, data.RecvQ, data.SendQ, data.Local, data.Peer, data.Process, data.Timestamp, data.Instance)
+			if err != nil {
+				tx.Rollback()
+				return fmt.Errorf("error inserting data into database: %w", err)
+			}
+		}
+	}
+
+	err = tx.Commit()
+	if err != nil {
+		return fmt.Errorf("error committing transaction: %w", err)
+	}
+
+	return nil
 }

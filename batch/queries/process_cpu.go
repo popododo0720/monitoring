@@ -7,6 +7,15 @@ import (
 	"time"
 )
 
+type ProcessCpuData struct {
+	Command      string
+	PID          int
+	User         string
+	Instance     string
+	Timestamp    time.Time
+	CpuUsage     float64
+}
+
 const processCpuQuery = "Process_Instance_All_CPU"
 
 func InsertProcessCPUData(db *sql.DB, startTime, endTime time.Time, ch chan any) {
@@ -16,12 +25,7 @@ func InsertProcessCPUData(db *sql.DB, startTime, endTime time.Time, ch chan any)
 		return
 	}
 
-	stmt, err := db.Prepare("INSERT INTO instance_process_cpu(command, pid, instance_user, instance, timestamp, cpu_usage) VALUES ($1, $2, $3, $4, $5, $6)")
-	if err != nil {
-		ch <- fmt.Errorf("error preparing statement: %w", err)
-		return
-	}
-	defer stmt.Close()
+	var processDataList []ProcessCpuData
 
 	for _, item := range data["result"].([]interface{}) {
 		metric, ok := item.(map[string]interface{})
@@ -111,15 +115,65 @@ func InsertProcessCPUData(db *sql.DB, startTime, endTime time.Time, ch chan any)
 			}
 			cpuUsage, _ := strconv.ParseFloat(cpuUsageStr, 64)
 
-			_, err = stmt.Exec(command, pid, user, instance, timestamp, cpuUsage)
-			if err != nil {
-				ch <- fmt.Errorf("error inserting data into database: %w", err)
-				return
-			}
+			processDataList = append(processDataList, ProcessCpuData{
+				Command:   command,
+				PID:       pid,
+				User:      user,
+				Instance:  instance,
+				Timestamp: timestamp,
+				CpuUsage:  cpuUsage,
+			})
+			
 		}
+	}
+
+	err = insertProcessCpuDataDB(db, processDataList, ch)
+	if err != nil {
+		ch <- fmt.Errorf("error inserting data into database: %w", err)
+		return
 	}
 
 	ch <- "Successfully inserted Process CPU usage data"
 	return
 }
 
+
+func insertProcessCpuDataDB(db *sql.DB, processDataList []ProcessCpuData, ch chan any) error{
+	tx, err := db.Begin()
+	if err != nil {
+		return fmt.Errorf("error starting transaction: %w", err)
+	}
+
+	stmt, err := tx.Prepare("INSERT INTO instance_process_cpu(command, pid, instance_user, instance, timestamp, cpu_usage) VALUES ($1, $2, $3, $4, $5, $6)")
+	if err != nil {
+		tx.Rollback()
+		return fmt.Errorf("error preparing statement: %w", err)
+	}
+	defer stmt.Close()
+
+	batchSize := 10000
+	for i := 0; i < len(processDataList); i += batchSize{
+		end := i + batchSize
+		if end > len(processDataList) {
+			end = len(processDataList)
+		}
+
+		for _, data := range processDataList[i:end] {
+			_, err = stmt.Exec(data.Command, data.PID, data.User, data.Instance, data.Timestamp, data.CpuUsage)
+			if err != nil {
+				tx.Rollback()
+				return fmt.Errorf("error inserting data into database: %w", err)
+			}
+		}
+	}
+
+	err = tx.Commit()
+	if err != nil {
+		return fmt.Errorf("error committing transaction: %w", err)
+	}
+
+	return nil
+}
+
+
+	

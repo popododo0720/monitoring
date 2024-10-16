@@ -1,0 +1,191 @@
+2024/10/16 00:00:01 Start Batch Process
+2024/10/16 00:00:01 Successfully inserted Process Port usage data
+[
+  {
+    "name": "test-5-3",
+    "ip": "10.0.5.38"
+  },
+  {
+    "name": "test-5-5",
+    "ip": "10.0.5.243"
+  },
+  {
+    "name": "test-5-4",
+    "ip": "10.0.5.20"
+  },
+  {
+    "name": "test-5-1",
+    "ip": "10.0.5.98"
+  },
+  {
+    "name": "test-5-6",
+    "ip": "10.0.5.58"
+  },
+  {
+    "name": "test-5-2",
+    "ip": "10.0.5.30"
+  },
+  {
+    "name": "logmaster",
+    "ip": "10.0.5.41"
+  },
+  {
+    "name": "slave03",
+    "ip": "10.0.5.166"
+  },
+  {
+    "name": "slave02",
+    "ip": "10.0.5.32"
+  },
+  {
+    "name": "slave01",
+    "ip": "10.0.5.108"
+  },
+  {
+    "name": "master02",
+    "ip": "10.0.5.117"
+  },
+  {
+    "name": "master01",
+    "ip": "10.0.5.73"
+  },
+  {
+    "name": "test-5-3",
+    "ip": "192.168.0.198"
+  },
+  {
+    "name": "test-5-5",
+    "ip": "192.168.0.192"
+  },
+  {
+    "name": "test-5-4",
+    "ip": "192.168.0.188"
+  },
+  {
+    "name": "test-5-1",
+    "ip": "192.168.0.194"
+  },
+  {
+    "name": "test-5-6",
+    "ip": "192.168.0.182"
+  },
+  {
+    "name": "test-5-2",
+    "ip": "192.168.0.185"
+  },
+  {
+    "name": "logmaster",
+    "ip": "192.168.0.181"
+  },
+  {
+    "name": "slave03",
+    "ip": "192.168.0.195"
+  },
+  {
+    "name": "slave02",
+    "ip": "192.168.0.189"
+  },
+  {
+    "name": "slave01",
+    "ip": "192.168.0.183"
+  },
+  {
+    "name": "master02",
+    "ip": "192.168.0.191"
+  },
+  {
+    "name": "master01",
+    "ip": "192.168.0.190"
+  }
+]
+[
+  {
+    "targets": [
+      "10.0.5.38:8088",
+      "10.0.5.243:8088",
+      "10.0.5.20:8088",
+      "10.0.5.98:8088",
+      "10.0.5.58:8088",
+      "10.0.5.30:8088",
+      "10.0.5.41:8088",
+      "10.0.5.166:8088",
+      "10.0.5.32:8088",
+      "10.0.5.108:8088",
+      "10.0.5.117:8088",
+      "10.0.5.73:8088",
+      "192.168.0.198:8088",
+      "192.168.0.192:8088",
+      "192.168.0.188:8088",
+      "192.168.0.194:8088",
+      "192.168.0.182:8088",
+      "192.168.0.185:8088",
+      "192.168.0.181:8088",
+      "192.168.0.195:8088",
+      "192.168.0.189:8088",
+      "192.168.0.183:8088",
+      "192.168.0.191:8088",
+      "192.168.0.190:8088"
+    ]
+  }
+]
+2024/10/16 00:00:04 Successfully inserted CPU usage data
+2024/10/16 00:00:04 Successfully inserted DISK usage data
+2024/10/16 00:00:04 Successfully inserted Mem usage data
+2024/10/16 00:00:10 Successfully inserted Process MEM usage data
+2024/10/16 00:00:10 Successfully inserted Process CPU usage data
+2024/10/16 00:00:10 took:  9.558530635s
+2024/10/16 00:09:40 Start Batch Process
+2024/10/16 00:09:48 Successfully inserted Process CPU usage data
+2024/10/16 00:09:48 took:  7.685964104s
+2024/10/16 00:10:02 Start Batch Process
+2024/10/16 00:10:11 Successfully inserted Process CPU usage data
+2024/10/16 00:10:11 took:  9.087090491s
+2024/10/16 00:11:06 Start Batch Process
+2024/10/16 00:11:07 Successfully inserted Process Port usage data
+2024/10/16 00:11:08 Successfully inserted Mem usage data
+2024/10/16 00:11:08 Successfully inserted CPU usage data
+2024/10/16 00:11:08 Successfully inserted DISK usage data
+2024/10/16 00:11:16 Successfully inserted Process MEM usage data
+2024/10/16 00:11:16 Successfully inserted Process CPU usage data
+2024/10/16 00:11:16 took:  9.831662404s
+2024/10/16 00:13:57 Start Batch Process
+2024/10/16 00:13:58 Successfully inserted Process Port usage data
+2024/10/16 00:14:00 Successfully inserted Mem usage data
+2024/10/16 00:14:00 Successfully inserted CPU usage data
+2024/10/16 00:14:00 Successfully inserted DISK usage data
+2024/10/16 00:14:06 Successfully inserted Process CPU usage data
+2024/10/16 00:14:07 Successfully inserted Process MEM usage data
+2024/10/16 00:14:07 took:  9.22992356s
+2024/10/16 00:48:16 Start Batch Process
+2024/10/16 00:48:16 Successfully inserted Process Port usage data
+2024/10/16 00:48:18 Successfully inserted Mem usage data
+2024/10/16 00:48:18 Successfully inserted DISK usage data
+2024/10/16 00:48:18 Successfully inserted CPU usage data
+2024/10/16 00:48:24 Successfully inserted Process CPU usage data
+2024/10/16 00:49:46 Start Batch Process
+2024/10/16 00:49:47 Successfully inserted Process Port usage data
+2024/10/16 00:49:48 Successfully inserted Mem usage data
+2024/10/16 00:49:48 Successfully inserted CPU usage data
+2024/10/16 00:49:48 Successfully inserted DISK usage data
+2024/10/16 00:49:56 Successfully inserted Process CPU usage data
+2024/10/16 00:51:23 Successfully inserted Process MEM usage data
+2024/10/16 00:51:23 took:  1m36.717441436s
+2024/10/16 00:52:25 Start Batch Process
+2024/10/16 00:52:26 Successfully inserted Process Port usage data
+2024/10/16 00:52:27 Successfully inserted CPU usage data
+2024/10/16 00:52:27 Successfully inserted DISK usage data
+2024/10/16 00:52:27 Successfully inserted Mem usage data
+2024/10/16 00:52:35 Successfully inserted Process CPU usage data
+2024/10/16 00:54:01 Successfully inserted Process MEM usage data
+2024/10/16 00:54:01 took:  1m35.887491786s
+2024/10/16 00:55:11 Start Batch Process
+2024/10/16 00:55:19 Successfully inserted Process MEM usage data
+2024/10/16 00:55:19 took:  8.671774855s
+2024/10/16 00:55:37 Start Batch Process
+2024/10/16 00:55:37 Successfully inserted Process Port usage data
+2024/10/16 00:55:39 Successfully inserted CPU usage data
+2024/10/16 00:55:39 Successfully inserted Mem usage data
+2024/10/16 00:55:39 Successfully inserted DISK usage data
+2024/10/16 00:55:46 Successfully inserted Process MEM usage data
+2024/10/16 00:55:46 Successfully inserted Process CPU usage data
+2024/10/16 00:55:46 took:  9.247951474s

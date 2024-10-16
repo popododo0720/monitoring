@@ -11,6 +11,8 @@ import (
 
 func main() {
 
+	start := time.Now()
+
 	currentDate := time.Now().Format("2006-01-02")
 
 	logFilePath := "/monitoring/batch/batchlogs/batch_process_" + currentDate + ".log"
@@ -30,7 +32,7 @@ func main() {
 	}
 	defer db.Close()
 
-	c := make(chan any, 6)
+	c := make(chan any, 1)
 
 	go queries.InsertCPUUsageData(db, time.Now().Add(-1 * time.Hour), time.Now(), c)
 	go queries.InsertMemoryUsageData(db, time.Now().Add(-1 * time.Hour), time.Now(), c)
@@ -43,6 +45,8 @@ func main() {
 		result := <-c 
 		log.Println(result) 
 	}
+
+	log.Println("took: ", time.Since(start))
 
 	close(c)
 }

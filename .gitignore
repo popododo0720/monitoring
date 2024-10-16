@@ -3,3 +3,5 @@ serverIp.json
 serviceDiscovery.sh.bak  
 targets.json
 database/
+dbclean.sh
+

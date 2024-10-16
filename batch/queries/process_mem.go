@@ -7,21 +7,26 @@ import (
 	"time"
 )
 
+type ProcessMemoryData struct {
+	Command      string
+	PID          int
+	User         string
+	Instance     string
+	Timestamp    time.Time
+	MemUsage     float64
+}
+
 const processMemoryQuery = "Process_Instance_All_MEM"
 
 func InsertProcessMEMData(db *sql.DB, startTime, endTime time.Time, ch chan any) {
+
 	data, err := fetchPrometheusData(processMemoryQuery, startTime, endTime)
 	if err != nil {
 		ch <- fmt.Errorf("error fetching data from Prometheus: %w", err)
 		return
 	}
 
-	stmt, err := db.Prepare("INSERT INTO instance_process_mem(command, pid, instance_user, instance, timestamp, mem_usage) VALUES ($1, $2, $3, $4, $5, $6)")
-	if err != nil {
-		ch <- fmt.Errorf("error preparing statement: %w", err)
-		return
-	}
-	defer stmt.Close()
+	var processDataList []ProcessMemoryData
 
 	for _, item := range data["result"].([]interface{}) {
 		metric, ok := item.(map[string]interface{})
@@ -111,17 +116,61 @@ func InsertProcessMEMData(db *sql.DB, startTime, endTime time.Time, ch chan any)
 			}
 			memUsage, _ := strconv.ParseFloat(memUsageStr, 64)
 
-			queryLog := fmt.Sprintf("INSERT INTO instance_process_mem(command, pid, instance_user, instance, timestamp, mem_usage) VALUES (%q, %d, %q, %q, %s, %f)", command, pid, user, instance, timestamp.Format(time.RFC3339), memUsage)
-			fmt.Println(queryLog)
+			processDataList = append(processDataList, ProcessMemoryData{
+				Command:   command,
+				PID:       pid,
+				User:      user,
+				Instance:  instance,
+				Timestamp: timestamp,
+				MemUsage:  memUsage,
+			})
 
-			_, err = stmt.Exec(command, pid, user, instance, timestamp, memUsage)
-			if err != nil {
-				ch <- fmt.Errorf("error inserting data into database: %w", err)
-				return
-			}
 		}
+	}
+
+	err = insertProcessMemDataDB(db, processDataList, ch)
+	if err != nil {
+		ch <- fmt.Errorf("error inserting data into database: %w", err)
+		return
 	}
 
 	ch <- "Successfully inserted Process MEM usage data"
 	return
+}
+
+func insertProcessMemDataDB(db *sql.DB, processDataList []ProcessMemoryData, ch chan any) error{
+	tx, err := db.Begin()
+	if err != nil{
+		return fmt.Errorf("error starting transation: %w", err)
+	}
+
+	stmt, err := tx.Prepare("INSERT INTO instance_process_mem(command, pid, instance_user, instance, timestamp, mem_usage) VALUES ($1, $2, $3, $4, $5, $6)")
+	if err != nil {
+		tx.Rollback()
+		return fmt.Errorf("error preparing statement: %w", err)
+	}
+	defer stmt.Close()
+
+	batchSize := 10000
+	for i := 0; i < len(processDataList); i += batchSize{
+		end := i + batchSize
+		if end > len(processDataList) {
+			end = len(processDataList)
+		}
+
+		for _, data := range processDataList[i:end] {
+			_, err = stmt.Exec(data.Command, data.PID, data.User, data.Instance, data.Timestamp, data.MemUsage)
+			if err != nil {
+				tx.Rollback()
+				return fmt.Errorf("error inserting data into database: %w", err)
+			}
+		}
+	}
+	
+	err = tx.Commit()
+	if err != nil {
+		return fmt.Errorf("error committing transaction: %w", err)
+	}
+
+	return nil
 }
