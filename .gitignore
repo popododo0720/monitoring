@@ -4,4 +4,4 @@ serviceDiscovery.sh.bak
 targets.json
 database/
 dbclean.sh
-
+batch/batchlogs/
