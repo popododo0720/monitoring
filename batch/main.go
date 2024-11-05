@@ -2,8 +2,8 @@ package main
 
 import (
 	"log"
-	"time"
 	"os"
+	"time"
 
 	"main/common"
 	"main/queries"
@@ -34,16 +34,17 @@ func main() {
 
 	c := make(chan any, 1)
 
-	go queries.InsertCPUUsageData(db, time.Now().Add(-1 * time.Hour), time.Now(), c)
-	go queries.InsertMemoryUsageData(db, time.Now().Add(-1 * time.Hour), time.Now(), c)
-	go queries.InsertDiskUsageData(db, time.Now().Add(-1 * time.Hour), time.Now(), c)
-	go queries.InsertPortUsageData(db, time.Now().Add(-1 * time.Hour), time.Now(), c)
-	go queries.InsertProcessCPUData(db, time.Now().Add(-1 * time.Hour), time.Now(), c)
-	go queries.InsertProcessMEMData(db, time.Now().Add(-1 * time.Hour), time.Now(), c)
+	go queries.InsertCPUUsageData(db, time.Now().Add(-1*time.Hour), time.Now(), c)
+	go queries.InsertMemoryUsageData(db, time.Now().Add(-1*time.Hour), time.Now(), c)
+	go queries.InsertDiskUsageData(db, time.Now().Add(-1*time.Hour), time.Now(), c)
+	go queries.InsertPortUsageData(db, time.Now().Add(-1*time.Hour), time.Now(), c)
+	go queries.InsertProcessCPUData(db, time.Now().Add(-1*time.Hour), time.Now(), c)
+	go queries.InsertProcessMEMData(db, time.Now().Add(-1*time.Hour), time.Now(), c)
+	go queries.InsertReportMaping(db, c)
 
-	for i := 0; i < 6; i++ { 
-		result := <-c 
-		log.Println(result) 
+	for i := 0; i < 7; i++ {
+		result := <-c
+		log.Println(result)
 	}
 
 	log.Println("took: ", time.Since(start))

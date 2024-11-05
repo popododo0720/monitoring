@@ -1,0 +1,118 @@
+[
+    {
+        "ip": "192.168.0.248",
+        "name": "dev"
+    },
+    {
+        "ip": "10.0.5.17",
+        "name": "kube-sub5"
+    },
+    {
+        "ip": "192.168.0.188",
+        "name": "kube-sub5"
+    },
+    {
+        "ip": "10.0.5.95",
+        "name": "kube-sub4"
+    },
+    {
+        "ip": "192.168.0.234",
+        "name": "kube-sub4"
+    },
+    {
+        "ip": "10.0.5.130",
+        "name": "kube-sub3"
+    },
+    {
+        "ip": "192.168.0.236",
+        "name": "kube-sub3"
+    },
+    {
+        "ip": "10.0.5.64",
+        "name": "kube-sub2"
+    },
+    {
+        "ip": "192.168.0.208",
+        "name": "kube-sub2"
+    },
+    {
+        "ip": "10.0.5.123",
+        "name": "kube-sub1"
+    },
+    {
+        "ip": "192.168.0.206",
+        "name": "kube-sub1"
+    },
+    {
+        "ip": "10.0.5.179",
+        "name": "kube3"
+    },
+    {
+        "ip": "192.168.0.242",
+        "name": "kube3"
+    },
+    {
+        "ip": "10.0.5.153",
+        "name": "kube2"
+    },
+    {
+        "ip": "192.168.0.237",
+        "name": "kube2"
+    },
+    {
+        "ip": "10.0.5.10",
+        "name": "kube1"
+    },
+    {
+        "ip": "192.168.0.210",
+        "name": "kube1"
+    },
+    {
+        "ip": "10.0.5.41",
+        "name": "logmaster"
+    },
+    {
+        "ip": "192.168.0.181",
+        "name": "logmaster"
+    },
+    {
+        "ip": "10.0.5.166",
+        "name": "Bigdata-datanode.slave03"
+    },
+    {
+        "ip": "192.168.0.195",
+        "name": "Bigdata-datanode.slave03"
+    },
+    {
+        "ip": "10.0.5.32",
+        "name": "Bigdata-datanode.slave02"
+    },
+    {
+        "ip": "192.168.0.189",
+        "name": "Bigdata-datanode.slave02"
+    },
+    {
+        "ip": "10.0.5.108",
+        "name": "Bigdata-datanode.slave01"
+    },
+    {
+        "ip": "192.168.0.183",
+        "name": "Bigdata-datanode.slave01"
+    },
+    {
+        "ip": "10.0.5.117",
+        "name": "Bigdata-namenode.master02"
+    },
+    {
+        "ip": "192.168.0.191",
+        "name": "Bigdata-namenode.master02"
+    },
+    {
+        "ip": "10.0.5.73",
+        "name": "Bigdata-namenode.master01"
+    },
+    {
+        "ip": "192.168.0.190",
+        "name": "Bigdata-namenode.master01"
+    }
+]
