@@ -8,12 +8,12 @@ import (
 )
 
 type ProcessCpuData struct {
-	Command      string
-	PID          int
-	User         string
-	Instance     string
-	Timestamp    time.Time
-	CpuUsage     float64
+	Command   string
+	PID       int
+	User      string
+	Instance  string
+	Timestamp time.Time
+	CpuUsage  float64
 }
 
 const processCpuQuery = "Process_Instance_All_CPU"
@@ -123,22 +123,20 @@ func InsertProcessCPUData(db *sql.DB, startTime, endTime time.Time, ch chan any)
 				Timestamp: timestamp,
 				CpuUsage:  cpuUsage,
 			})
-			
+
 		}
 	}
 
-	err = insertProcessCpuDataDB(db, processDataList, ch)
+	err = insertProcessCpuDataDB(db, processDataList)
 	if err != nil {
 		ch <- fmt.Errorf("error inserting data into database: %w", err)
 		return
 	}
 
 	ch <- "Successfully inserted Process CPU usage data"
-	return
 }
 
-
-func insertProcessCpuDataDB(db *sql.DB, processDataList []ProcessCpuData, ch chan any) error{
+func insertProcessCpuDataDB(db *sql.DB, processDataList []ProcessCpuData) error {
 	tx, err := db.Begin()
 	if err != nil {
 		return fmt.Errorf("error starting transaction: %w", err)
@@ -152,7 +150,7 @@ func insertProcessCpuDataDB(db *sql.DB, processDataList []ProcessCpuData, ch cha
 	defer stmt.Close()
 
 	batchSize := 10000
-	for i := 0; i < len(processDataList); i += batchSize{
+	for i := 0; i < len(processDataList); i += batchSize {
 		end := i + batchSize
 		if end > len(processDataList) {
 			end = len(processDataList)
@@ -174,6 +172,3 @@ func insertProcessCpuDataDB(db *sql.DB, processDataList []ProcessCpuData, ch cha
 
 	return nil
 }
-
-
-	

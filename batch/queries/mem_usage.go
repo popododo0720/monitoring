@@ -45,7 +45,7 @@ func InsertMemoryUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any
 
 			memUsageStr, ok := valueArray[1].(string)
 			if !ok {
-				ch <-  fmt.Errorf("unexpected memory usage format")
+				ch <- fmt.Errorf("unexpected memory usage format")
 				return
 			}
 			memUsage, err := strconv.ParseFloat(memUsageStr, 64)
@@ -70,5 +70,4 @@ func InsertMemoryUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any
 	}
 
 	ch <- "Successfully inserted Mem usage data"
-	return
 }

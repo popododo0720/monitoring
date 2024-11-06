@@ -86,7 +86,6 @@ func InsertDiskUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any) 
 	}
 
 	ch <- "Successfully inserted DISK usage data"
-	return
 }
 
 func getMetricValueAtTime(data map[string]interface{}, ipAddress string, timestamp time.Time) (float64, error) {

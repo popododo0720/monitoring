@@ -8,14 +8,14 @@ import (
 )
 
 type ProcessPortData struct {
-	State      string
-	RecvQ          string
-	SendQ         string
+	State     string
+	RecvQ     string
+	SendQ     string
 	Local     string
-	Peer	string
-	Process	string
-	Timestamp    time.Time
-	Instance	string
+	Peer      string
+	Process   string
+	Timestamp time.Time
+	Instance  string
 }
 
 const portQuery = "Process_Instance_All_Port"
@@ -112,16 +112,16 @@ func InsertPortUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any) 
 			}
 
 			processDataList = append(processDataList, ProcessPortData{
-				State:      state,
-				RecvQ:          recvQ,
-				SendQ:         sendQ,
+				State:     state,
+				RecvQ:     recvQ,
+				SendQ:     sendQ,
 				Local:     local,
-				Peer:	peer,
-				Process:	process,
-				Timestamp:    timestamp,
-				Instance:	instance,
+				Peer:      peer,
+				Process:   process,
+				Timestamp: timestamp,
+				Instance:  instance,
 			})
-			
+
 		}
 
 	}
@@ -133,24 +133,23 @@ func InsertPortUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any) 
 	}
 
 	ch <- "Successfully inserted Process Port usage data"
-	return
 }
 
-func insertPortUsageDataDB(db *sql.DB, processDataList []ProcessPortData, ch chan any) error{
+func insertPortUsageDataDB(db *sql.DB, processDataList []ProcessPortData, ch chan any) error {
 	tx, err := db.Begin()
-	if err != nil{
+	if err != nil {
 		return fmt.Errorf("error starting transaction: %w", err)
 	}
 
 	stmt, err := tx.Prepare("INSERT INTO instance_ports(state, recvq, sendq, local, peer, process, timestamp, instance) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)")
-	if err != nil{
+	if err != nil {
 		tx.Rollback()
 		return fmt.Errorf("error preparing statement: %w", err)
 	}
 	defer stmt.Close()
 
 	batchSize := 10000
-	for i:= 0; i < len(processDataList); i += batchSize{
+	for i := 0; i < len(processDataList); i += batchSize {
 		end := i + batchSize
 		if end > len(processDataList) {
 			end = len(processDataList)

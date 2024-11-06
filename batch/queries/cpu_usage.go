@@ -70,5 +70,4 @@ func InsertCPUUsageData(db *sql.DB, startTime, endTime time.Time, ch chan any) {
 	}
 
 	ch <- "Successfully inserted CPU usage data"
-	return
 }

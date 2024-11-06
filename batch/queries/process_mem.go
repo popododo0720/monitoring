@@ -8,12 +8,12 @@ import (
 )
 
 type ProcessMemoryData struct {
-	Command      string
-	PID          int
-	User         string
-	Instance     string
-	Timestamp    time.Time
-	MemUsage     float64
+	Command   string
+	PID       int
+	User      string
+	Instance  string
+	Timestamp time.Time
+	MemUsage  float64
 }
 
 const processMemoryQuery = "Process_Instance_All_MEM"
@@ -128,19 +128,18 @@ func InsertProcessMEMData(db *sql.DB, startTime, endTime time.Time, ch chan any)
 		}
 	}
 
-	err = insertProcessMemDataDB(db, processDataList, ch)
+	err = insertProcessMemDataDB(db, processDataList)
 	if err != nil {
 		ch <- fmt.Errorf("error inserting data into database: %w", err)
 		return
 	}
 
 	ch <- "Successfully inserted Process MEM usage data"
-	return
 }
 
-func insertProcessMemDataDB(db *sql.DB, processDataList []ProcessMemoryData, ch chan any) error{
+func insertProcessMemDataDB(db *sql.DB, processDataList []ProcessMemoryData) error {
 	tx, err := db.Begin()
-	if err != nil{
+	if err != nil {
 		return fmt.Errorf("error starting transation: %w", err)
 	}
 
@@ -152,7 +151,7 @@ func insertProcessMemDataDB(db *sql.DB, processDataList []ProcessMemoryData, ch 
 	defer stmt.Close()
 
 	batchSize := 10000
-	for i := 0; i < len(processDataList); i += batchSize{
+	for i := 0; i < len(processDataList); i += batchSize {
 		end := i + batchSize
 		if end > len(processDataList) {
 			end = len(processDataList)
@@ -166,7 +165,7 @@ func insertProcessMemDataDB(db *sql.DB, processDataList []ProcessMemoryData, ch 
 			}
 		}
 	}
-	
+
 	err = tx.Commit()
 	if err != nil {
 		return fmt.Errorf("error committing transaction: %w", err)

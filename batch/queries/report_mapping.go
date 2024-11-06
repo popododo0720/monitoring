@@ -11,6 +11,7 @@ import (
 	"os/exec"
 	"strings"
 
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/lib/pq"
 )
 
@@ -66,23 +67,6 @@ func InsertReportMaping(db *sql.DB, ch chan any) {
 		log.Fatalf("Failed to parse JSON: %v", err)
 	}
 
-	_, err = db.Exec("DROP TABLE IF EXISTS report_mapping")
-	if err != nil {
-		log.Fatalf("Failed to drop table: %v", err)
-	}
-
-	_, err = db.Exec(`
-		CREATE TABLE report_mapping (
-			id SERIAL PRIMARY KEY,
-			display_name TEXT UNIQUE,
-			ip_address TEXT[],
-			report_type TEXT
-		);
-	`)
-	if err != nil {
-		log.Fatalf("Failed to create table: %v", err)
-	}
-
 	servers, _ := data["servers"].([]interface{})
 
 	for _, s := range servers {
@@ -98,10 +82,25 @@ func InsertReportMaping(db *sql.DB, ch chan any) {
 			}
 		}
 
-		_, err := db.Exec(
-			"INSERT INTO report_mapping (display_name, ip_address) VALUES ($1, $2) ON CONFLICT (display_name) DO UPDATE SET ip_address = EXCLUDED.ip_address",
+		instanceUUID, err := GetInstanceUUID(name)
+		if err != nil {
+			ch <- fmt.Errorf("failed to get instance_uuid: %v", err)
+			return
+		}
+		if instanceUUID == "" {
+			log.Printf("No active instance found for display_name: %s", name)
+			continue
+		}
+
+		fmt.Print(name)
+		fmt.Print(ipAddresses)
+		fmt.Println(instanceUUID)
+
+		_, err = db.Exec(
+			"INSERT INTO report_mapping (display_name, ip_address, instance_uuid) VALUES ($1, $2,$3) ON CONFLICT (instance_uuid) DO UPDATE SET ip_address = EXCLUDED.ip_address, display_name = EXCLUDED.display_name",
 			name,
 			pq.Array(ipAddresses),
+			instanceUUID,
 		)
 		if err != nil {
 			ch <- fmt.Errorf("error inserting data into database: %w", err)
@@ -122,4 +121,30 @@ func parseEnv(envOutput string) map[string]string {
 		}
 	}
 	return envVars
+}
+
+func GetInstanceUUID(displayName string) (string, error) {
+	var instanceUUID string
+
+	connStr := "root:bcyEm8dQ0c43TbsZzWX7HFpn6ddsEmYb7Saiewfw@tcp(10.0.2.110:3306)/nova"
+	db2, err := sql.Open("mysql", connStr)
+	if err != nil {
+		log.Fatalf("Failed to connect to MariaDB: %v", err)
+		return "", err
+	}
+	defer db2.Close()
+
+	selectQuery := `
+		SELECT i.uuid 
+		FROM instances i 
+		WHERE i.vm_state = 'active' AND i.display_name = ?
+	`
+	err = db2.QueryRow(selectQuery, displayName).Scan(&instanceUUID)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return "", nil
+		}
+		return "", fmt.Errorf("failed to get instance_uuid: %w", err)
+	}
+	return instanceUUID, nil
 }
